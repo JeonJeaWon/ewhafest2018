@@ -3,7 +3,3 @@
       <%= image_tag "home.jpg", :class => "home_image" %>
   </div>
   
-  <%= form_tag import_home_index_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>

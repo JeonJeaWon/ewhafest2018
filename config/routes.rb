@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
-    resources :home do
-    collection{
-      post :import
-    }
-  end
+  #   resources :home do
+  #   collection{
+  #     post :import
+  #   }
+  # end
   
-  root to: 'home#index'
-# root 'home#index'
+  # root to: 'home#index'
+root 'home#index'
   
   get 'home/index'
 
