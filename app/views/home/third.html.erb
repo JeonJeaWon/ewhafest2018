@@ -32,13 +32,16 @@
         </form>
     </div>
     <div class="place_img col s9">
+        <div class="line_height">
             <% if @building=="event" %>
-                <%= image_tag ("building/#{@building}_3.jpg"), :class => "style_image" %>
+                <%= image_tag ("building/#{@building}_3.jpg"), :class => "style_event_image" %>
             <% elsif @building =="show" %>
                 <%= image_tag ("building/show.jpg"), :class => "style_show_image" %>
             <% else %>
                 <%= image_tag ("building/#{@building}.jpg"), :class => "style_image" %>
-           <%end%>    </div>
+           <%end%>   
+         </div>
+    </div>
 </div>
 </div>
 <hr>

@@ -11,6 +11,7 @@
 
 .button_building.col.s3{
     padding:0px;
+
 }
 
 .place_button{
@@ -27,28 +28,47 @@
 }
 
 .place_img.col.s9{
-padding:0px;
+    padding:0px;
 }
 
 .line_height{
-    line-height:810px;
+    height:810px;
+
 }
 
 .style_image{
-    width:100%;
+   width:100%;
+   vertical-align:middle;
+   height:100%;
+}
+
+.style_event_image{
+   width:100%;
    vertical-align:middle;
     height:100%;
+    background-color:#9EEAFA;
 }
 
 .style_show_image{
-     width:auto;
+    vertical-align:middle;
     height:100%;
+     width:100%;
 }
 
 .home_image{
     padding-top:35px;
     width:100%;
+    height:100%;
 }
+
+
+.event_page_image{
+   width:100%;
+   vertical-align:middle;
+   height:100%;
+   padding-top:70px;
+}
+
 
 #title_font{
     color:white;
