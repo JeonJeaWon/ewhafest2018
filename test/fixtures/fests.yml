@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one: {}
+
+  # date: 1
+  # place: MyString
+  # name: MyString
+  # detail: 
+
+two: {}
+  # date: 1
+  # place: MyString
+  # name: MyString
+  # detail: 

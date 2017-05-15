@@ -1,0 +1,87 @@
+
+<!-- 장소 목록 -->
+<div class="place">
+ <div class="row" style="margin-bottom:0px;" >
+    <div class="button_building col s3" >
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="hak">학관</button>
+        </form>
+       <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="hoo">후윳길</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="hakm_base">학문관지하</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="hakm_forest">학문관숲길</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="posco">포스코관</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="gate">정문</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="saeng">생활관</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="event">이벤트</button>
+        </form>
+        <form action='/home/third' method='get'>
+            <button type="submit" class="place_button" name="place" value="show">공연</button>
+        </form>
+    </div>
+    <div class="place_img col s9">
+            <% if @building=="event" %>
+                <%= image_tag ("building/#{@building}_3.jpg"), :class => "style_image" %>
+            <% elsif @building =="show" %>
+                <%= image_tag ("building/show.jpg"), :class => "style_show_image" %>
+            <% else %>
+                <%= image_tag ("building/#{@building}.jpg"), :class => "style_image" %>
+           <%end%>    </div>
+</div>
+</div>
+<hr>
+<!-- 장소목록 끝 -->
+
+<!--장소 목록 리스트 & 이벤트 리스트-->
+<div class="every_list" >
+    <!-- ruby 문법 -->
+        <% Fest.where(date:3).where(place: @building).each do |booth| %>
+                 
+        <!-- 이벤트 페이지 -->
+        <div class="event_list">        
+                <% if booth.place == "event" %>
+                    <form action='/home/event/<%=booth.id%>' method='get' >
+                        <button type="submit" class="event_button"><%=booth.name%></button>
+                    </form>
+                <!-- 장소-메뉴 가격 페이지 -->    
+            <div class="place_menu_list">        
+                <% elsif %>
+                   <div class="number_name">
+                    <div class="booth_num_name">
+                    <!-- 이미지파일-숫자 -->  
+                       <span class="booth_img"> <%= image_tag ("num/#{booth.booth_num}.png") %> </span>
+                       <!-- 부스이름 -->  
+                       <h3> <%= booth.name %> </h3><br> 
+                     </div>
+                    </div>
+                    <!-- array - 음식-가격 정보부분. 보더 솔리드 간격 줄여야 함 -->  
+                <div class="price_tag">
+                        <% booth.detail.each do |d| %>
+                        <div class="whole_collection">
+                            <li class="collection">
+                            <%= d %> <!-- 보이는 부분 -->  
+                            </li>
+                        </div>    
+                        <% end %>
+                        <% @num=@num+1 %>
+                    <% end %>
+               </div>
+             </div>
+ 
+            </div>    
+        </div>        
+        <% end %>
+
+<!--장소 목록 리스트 & 이벤트 리스트 끝-->

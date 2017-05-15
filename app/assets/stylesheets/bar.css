@@ -1,0 +1,56 @@
+.index_img{
+    background-size: cover;
+}
+
+.place{
+ margin-top:56px;
+ padding:0;
+}
+
+
+
+.button_building.col.s3{
+    padding:0px;
+}
+
+.place_button{
+    margin:0 auto;
+    background-color:#c7c0c0;
+    border-style:none;
+    border-bottom-style:solid;
+    text-align: center;
+    color:black;
+    height:90px;
+    width: 100%;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+
+.place_img.col.s9{
+padding:0px;
+}
+
+.line_height{
+    line-height:810px;
+}
+
+.style_image{
+    width:100%;
+   vertical-align:middle;
+    height:100%;
+}
+
+.style_show_image{
+     width:auto;
+    height:100%;
+}
+
+.home_image{
+    padding-top:35px;
+    width:100%;
+}
+
+#title_font{
+    color:white;
+}
+

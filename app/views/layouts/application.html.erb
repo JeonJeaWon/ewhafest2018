@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+   <!-- Compiled and minified CSS materialize css cdn-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+   <!-- cdn 끝 -->    
+   
+   <link rel="stylesheet" href="../stylesheets/bar.css">
+   <link rel="stylesheet" href="../stylesheets/menu.css">
+
+</head>
+<body>
+<!-- header &navigation -->
+<div class="row">
+     <div class="home"> 
+        <div class="header"> 
+            <div class="header_img"> 
+               <%= image_tag "header1.png" %>
+            </div>
+            <a href="/"><h1 id="title_font">이화여대</h1></a>
+            <div class="header_img"> 
+              <%= image_tag "header2.png" %>
+            </div>
+        </div>
+      </div>  
+  <nav>
+      <div class="gnb">  
+       <div class="button_date">
+              <form action="/home/index" method='get' class="col s3">
+                <div>
+                  <button type="submit"  class="gnb_but">HOME</button>
+                </div>
+              </form>
+              <form action="/home/first" method='get' class="col s3">
+                  <button class="gnb_but" type="submit">5/16(화)</button>
+              </form>
+              <form action="/home/second" method='get'class="col s3">
+                  <button class="gnb_but" type="submit">5/17(수)</button>
+              </form>
+              <form action="/home/third" method='get' class="col s3">
+                  <button class="gnb_but" type="submit">5/18(목)</button>
+              </form>
+        </div>
+       </div>   
+    </nav>
+</div>
+  <!-- header&navi 끝 -->
+
+
+<%= yield %>
+
+    <footer>
+        <p>Copyright &copy; Ewha-Likelion 5th, 2017</p>
+    </footer>
+
+</body>
+</html>
