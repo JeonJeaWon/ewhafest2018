@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 gem 'rails_db'
@@ -47,7 +47,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'mysql2'
 end
 

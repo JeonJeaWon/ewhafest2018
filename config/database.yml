@@ -25,6 +25,10 @@ test:
 #   database: db/production.sqlite3
 
 production:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  host: 127.0.0.1
+  database: ewhafest2018_production
+  username: root
+  password: <%= ENV.fetch("DATABASE_PASSWORD"){ "" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
