@@ -1,7 +1,8 @@
 
+
 <!-- 장소 목록 -->
 <div class="place">
- <div id ="box" class="row" style="margin-bottom:0px;" >
+ <div id ="box" class="row" style="margin-bottom:0px; display: flex; width: 100vw;" >
     <div class="button_building col s3" >
         <form action='/home/first' method='get'>
             <button type="submit" class="place_button" name="place" value="hak">학관</button>
@@ -21,25 +22,13 @@
         <form action='/home/first' method='get'>
             <button type="submit" class="place_button" name="place" value="gate">정문</button>
         </form>
-        <form action='/home/first' method='get'>
+        <form action='/home/first' method='get' style="border-bottom: none;">
             <button type="submit" class="place_button" name="place" value="saeng">생활관</button>
-        </form>
-        <form action='/home/first' method='get'>
-            <button type="submit" class="place_button" name="place" value="event">이벤트</button>
-        </form>
-        <form action='/home/first' method='get'>
-            <button type="submit" class="place_button" name="place" value="show">공연</button>
         </form>
     </div>
     <div class="place_img col s9" >
         <div class="line_height">
-            <% if @building=="event" %>
-                <%= image_tag ("building/#{@building}_1.jpg"), :class => "style_event_image" %>
-            <% elsif @building =="show" %>.
-                <%= image_tag ("building/show.jpg"), :class => "style_show_image" %>
-            <% else %>
-                <%= image_tag ("building/#{@building}.jpg"), :class => "style_image" %>
-           <%end%>   
+            <%= image_tag ("building/#{@building}.jpg"), :class => "style_image" %>
          </div>
     </div>
 </div>
@@ -50,36 +39,45 @@
 <!--장소 목록 리스트 & 이벤트 리스트-->
 <div class="every_list" >
     <!-- ruby 문법 -->
-        <% Fest.where(date:1).where(place: @building).each do |booth| %>
+        <% Fest.where(date:1).where(place: @building).order(:booth_num).each do |booth| %>
+        
                  
         <!-- 이벤트 페이지 -->
         <div class="event_list">        
-                <% if booth.place == "event" %>
-                    <form action='/home/event/<%=booth.id%>' method='get' >
-                        <button type="submit" class="event_button"><%=booth.name%></button>
-                    </form>
                 <!-- 장소-메뉴 가격 페이지 -->    
             <div class="place_menu_list">        
-                <% elsif %>
+                
                    <div class="number_name">
                     <div class="booth_num_name">
+                        
                     <!-- 이미지파일-숫자 -->  
-                       <span class="booth_img"> <%= image_tag ("num/#{booth.booth_num}.png") %> </span>
-                       <!-- 부스이름 -->  
-                       <h3> <%= booth.name %> </h3><br> 
+                       <span class="booth_num" style="font-size:2.5em; color:white;"><%= ("#{booth.booth_num}") %> </span>
+                    <!-- 부스이름 -->  
+                       <h3 style = "color: black"> <%= booth.name %> </h3><br> 
                      </div>
                     </div>
-                    <!-- array - 음식-가격 정보부분. 보더 솔리드 간격 줄여야 함 -->  
+                    <!-- array - 음식-가격 정보부분. 보더 솔리드간격 줄여야 함 -->  
                 <div class="price_tag">
-                        <% booth.detail.each do |d| %>
-                        <div class="whole_collection">
-                            <li class="collection">
-                            <%= d %> <!-- 보이는 부분 -->  
-                            </li>
-                        </div>    
+                        <% @array = booth.detail.to_s.split(',')%>
+                        
+                        <%if(booth.sold_out ==0)%>
+                            <% @array.each do |d| %>
+                            <div class="whole_collection">
+                                <li class="collection" style="margin: 0; padding: 0; border: none;">
+                                    <p id ="<%=booth.booth_num%>" style="margin: 0;"><%= d %></p>
+                                </li>
+                            </div>
+                            <%end%>
+                        <%else%>
+                            <div class="whole_collection">
+                                <li class ="collection" style="color: #f25e0e; margin: 0; padding: 0; border: none;">
+                                    <p id ="<%=booth.booth_num%>">sold out</p>
+                                </li>
+                            </div>
                         <% end %>
-                        <% @num=@num+1 %>
-                    <% end %>
+                         
+                        <% @num = @num+1 %>
+
                </div>
              </div>
  
@@ -88,6 +86,8 @@
         <% end %>
 
 <!--장소 목록 리스트 & 이벤트 리스트 끝-->
+
+
 
 
 

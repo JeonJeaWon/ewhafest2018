@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   # root to: 'home#index'
 root 'home#index'
-  
+  get 'home/pass'
   get 'home/index'
 
   get 'home/first'
@@ -17,7 +17,16 @@ root 'home#index'
 
   get 'home/third'
   
-  get 'home/event/:fest_id' => 'home#event'
+  get 'home/forth'
+  
+  get 'home/event_show'
+  
+  get 'home/search'
+  
+  post 'home/pass'
+  
+  get 'home/csvsave' => 'home#csvsave'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

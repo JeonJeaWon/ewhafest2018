@@ -2,7 +2,7 @@
     margin:0px;
     padding:20px;
     padding-left:30px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
     border-style:none;
     border-bottom-style:solid;
     border-color:#cccccc;
@@ -27,9 +27,9 @@
 .place_menu_list{
     margin: 5px;
     padding:0px;
-    position:relative;
-    background-color:#dbd6d6;
-    text-align:center;
+    position:;relative;
+    background-color:white;
+    text-align:left;
     
 }
 
@@ -86,7 +86,6 @@
 .event_title{
     font-weight:bold;
 }
-
 
 
 

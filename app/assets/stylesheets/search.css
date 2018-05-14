@@ -1,0 +1,25 @@
+#search_result_p{
+    margin-top: 0%;
+    margin-left: 8%;
+    font-size: 2rem;
+    color: white;
+}
+
+.place_menu_lists{
+    font-size:1rem;
+    border-width: 3px;
+    border-color:#B583EA;
+    border-style:dashed;
+    margin: 10px 14%;
+    text-align: left;
+    background-color: white;
+    color: black;
+    padding: 5px 3px 0px 30px;
+    border-radius: 25px;
+    width:80%
+}
+
+.place_menu_lists:hover{
+    background:#E7E7E7;
+    opacity:0.5;
+}

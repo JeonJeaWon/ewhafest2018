@@ -1,0 +1,56 @@
+
+<br>
+<div class= "row">
+<h1 id="search_result" style= "color:white; text-align: center; font-size: 25px;"><span style="font-weight:bold;"><%=params[:search]%></span> 의 검색결과 입니다.</h1>
+</div>
+<% @fests.each do |f|%>
+    <%if(f.detail.to_s.include? params[:search])%>
+        <%case f.date
+        when 1
+          @date = "first"
+          @date_text= "첫째날 5월 15일"
+        when 2
+          @date = "second"
+          @date_text= "둘째날 5월 16일"
+        when 3
+          @date = "third"
+          @date_text= "셋째날 5월 17일"
+        end %>
+        
+        <%case f.place
+        when "hak"
+            @place = "학관"
+        when "hoo"
+            @place = "후윳길"
+        when "hakm_base"
+            @place ="학문관 지하"
+        when "hakm_forest"
+            @place ="학문관 숲길"
+        when "posco"
+            @place ="포스코관"
+        when "gate"
+            @place ="정문"
+        when "saeng"
+            @place ="생활관"
+        end
+
+        %>
+        
+        <a href = "/home/<%=@date%>?place=<%=f.place%>">
+            <div class="place_menu_lists"> 
+                <p><span style="color:white; font-weight:bold; background-color:#B583EA;padding:5px;">부스 번호</span> <%=f.booth_num%></p>
+                <p><span style="color:white;font-weight:bold; background-color:#B583EA;padding:5px;">부스 이름</span> <%= f.name %></p>
+                <p><span style="color:white;font-weight:bold;background-color:#B583EA;padding:5px;">부스 날짜</span> <%=@date_text%></p>
+                <p><span style="color:white;font-weight:bold;background-color:#B583EA;padding:5px;">부스 위치</span> <%=@place%></p>
+            
+                <%if(f.sold_out ==0)%></p>
+                    <p id ="<%=f.booth_num%>">&nbsp;&nbsp;<%= f.detail%></p>
+              <br> <%else%>
+                    <p>sold out</p>
+                <%end%>
+            </div>
+        </a>
+    <%end%>
+<%end%>
+
+</div>
